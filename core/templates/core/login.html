@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+{% block title %} Login {% endblock title %}
+{% block content %}
+
+<!------ Include the above in your HEAD tag ---------->
+<style>
+    h3 {
+        font-weight: 900;
+        text-decoration: none;
+        padding-bottom: -0%;
+    }
+
+    .login p {
+        font-weight: 700;
+        text-decoration: none;
+        padding-bottom: -0%;
+    }
+
+    .login a {
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+        padding-bottom: -0%;
+    }
+</style>
+
+<div class="container mt-5">
+    <h5 class="mt-5">Log<span style="color:#4986C5">in</span></h5>
+    <div class="row ">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-12 mb-4 mt-3">
+
+            </div>
+            <form id="login-form"  action="." class="login" method="post" role="form" style="display: block;">
+                {% csrf_token %}
+                <div class=" mb-3">
+                    <input type="text" class="form-control" name="username" autofocus autocapitalize="none"
+                        autocomplete="username" maxlength="150" placeholder="Enter username" required id="id_username">
+                </div>
+                <input type="password" class="form-control" name="password" autocomplete="current-password" placeholder="Enter Password" required id="id_password">
+                    <div class="row mt-3  text-center">
+                        <div class="col-md-3 col-sm-4 col-xs-3 ml-3">
+                            <button type="submit" class="mt-2 btn btn-info">Sign in</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <p> Don't have an account? <a href="{% url 'signup' %}">Sign-up</a></p>
+                        <a href="#">Forgot my password?</a>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

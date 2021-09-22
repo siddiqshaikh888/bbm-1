@@ -1,0 +1,114 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}How to Sell page{% endblock title %}
+{% block aboutactive%} active {% endblock aboutactive %}
+<!-- Bootstrap CSS (check if its connected) ->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" -->
+{% block content%}
+<section id="services" class="services section-bg">
+<div class="container mt-5">
+    <!-- Block level -->
+    <div class="row">
+        <div class="col-md-6">
+            <h2>1.Select the Monetization method</h2>
+            <p>You can nominate more than one From the list.Ecommerce, Saas, Affiliate, AdSense, Ads, Subscription.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <img class="img-bx" style="width: 100%;" src="{% static 'img/sell/step_1.png' %}">
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-5">
+            <img class="img-bx" style="width: 100%;" src="{% static 'img/sell/step_2.png' %}">
+        </div>
+
+        <div class="col-md-6 mt-5">
+            <h2>2.Your business Detail</h2>
+            <p>Firstly copy the link of your website and paste into the URL box.
+                Select the year and month when did you started your business.
+                Select the country from where you registered.
+                Select the state from which you are based.</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>3. Business Income details</h2>
+            <p>Select the option What type of business are you selling. In financial Overview add your annual income and
+                expenses.
+                Enter Revenue and Expenses made by your Business in Past 12 Months
+            </p>
+
+        </div>
+
+        <div class="col-md-6">
+            <img class="img-bx" style="width: 100%;" src="{% static 'img/sell/step_3.png' %}">
+        </div>
+
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mt-4">
+            <img class="img-bx" style="width: 100%;" src="{% static 'img/sell/step_4.png' %}">
+
+        </div>
+
+        <div class="col-md-6 mt-4">
+            <h2>4. Your Tracking Info </h2>
+            <p>Do you currently have either Google analytics or clicky Installed. If you have select Yes, If you don’t
+                have select No. Financial overview. Buyers look for traffic and performance of your business.
+                Connect your site traffic and audience overview with Google Analytics with Connect Google Analytics
+                option.</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6 mt-3">
+            <h2>5. Extra Information</h2>
+            <p>Briefly tell us about your business. Tell us about your business so potential buyers get excited. What
+                does your business do? In first box you have to answer, How does your business make money? In second box
+                you have to answer, Why are you selling this business? In third box you have to answer, Who would this
+                business be perfect for? Andlastly in
+                last boxupload aimage of your site, product, or service in the size of1340px*580px. Clickupload. Click
+                on the next button.</p>
+        </div>
+
+        <div class="col-md-6 mt-3">
+            <img class="img-bx" style="width: 100%;" src="{% static 'img/sell/step_5.png' %}">
+        </div>
+
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <img class="img-bx" style="width: 100%;" src="{% static 'img/sell/step_6.png' %}">
+
+        </div>
+
+        <div class="col-md-6">
+            <h2>6. Your're almost there. This is final step.</h2>
+            <p>How do BBM fees work? 1. Its $$ to list. Enter your payment detail below.2. We charge a variable success
+                fee on the successful sale of your business or asset. Add all the details asked over here. Confirm that
+                I have read the above and agree to be bound by BBM's Terms. Click Confirm</p>
+        </div>
+
+    </div>
+</div>
+</section>
+{% endblock %}
+<!--script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script-->

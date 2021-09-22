@@ -1,0 +1,279 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Buy and sell website{% endblock title %}
+{% block content %}
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+
+  <div class="container-fluid" data-aos="fade-up">
+    <div class="row justify-content-center">
+      <div class="col-xl-6 col-lg-4 pt-0 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+        <h1>#1 marketplace to buy and sell online businesses</h1>
+        <h2>Buy an online business, become an acquisition entrepreneur, and invest in digital real estate.</h2>
+          <div class="input-group mb-3">
+<input type="search" class="form-control" placeholder="Find Websites, Domains, blog and more..."
+aria-describedby="basic-addon2"><button class="input-group-text" id="basic-addon2" type="submit"> Search</button></div>
+        <div class="sell-link">Ready to sell? <a href="sell">Sell Now</a></div>
+      </div>
+      <div class="col-xl-5 col-lg-3 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
+        <img src="{% static 'img/5031659.jpg' %}" class="img-fluid animated" alt="">
+      </div>
+    </div>
+  </div>
+
+</section><!-- End Hero -->
+
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Browse top Online Businesses</h2>
+      <p>These are all revenue generating websites, ecommerce stores and other online businesses</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <ul id="portfolio-flters">
+          <li data-filter="*" class="filter-active">Website</li>
+          <li data-filter=".filter-web">ecommerce</li>
+          <li data-filter=".filter-app">App</li>
+          <li data-filter=".filter-software">Software</li>
+          <li data-filter=".filter-youtube">Youtube Channel</li>
+        </ul>
+      </div>
+    </div>
+<!-- 
+    {% for product in products %}
+        
+          
+          <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="card icon-box" id="card">
+             <img src="{% static 'img/template5.jpg'%}" class="card-img-top" alt="...">
+               <div class="card-body">
+                <span class="best-seller text-center text-uppercase">{{ product.status }}</span>
+                <span class="featured">{{ product.created_at }}</span>
+               <div>
+            <h6 class="card-title"><a href="{% url 'product_detail' product.id %}" style="margin-left: 5px;">{{ product.company_url }}</a></h6>
+             <h6 class="card-title">{{ product.short_description }}</h6>
+               <div class="price-big">
+                <span> ₹4,300</span>  ₹3,800
+             </div>
+           <div class="bid">49 Bids</div><br><br>
+           <div class="row">
+             <div class="col-md-6">
+              <div class="card" style="border-radius: 50px; border-color: #D5E0F2; background-color:#E9EEF8"> <h6 class="pt-2 pl-4 pb-2">Monetization
+                <small style="font-size: 60%;"><br><i class="fa fa-check"></i> Adsense, <br><i class="fa fa-check"></i> YouTube Monetization</small></h6>
+              
+              </div> 
+              </div>
+              <div class="col-md-4">
+                <div class="card" style="border-radius: 50px; border-color: #FDCD9D; background-color:#FEF2F1"> <h6 class="pt-2 pl-4 pb-2">Net Profit
+                  <small style="font-size: 60%;"><br>500 p/mo </small></h6>
+                
+                </div>
+              </div>
+             <div class="col-md-2"><a href="{% url 'product_detail' product.id %}" style="margin-left: 5px;" class="btn btn-primary pull-right">View</a></div>
+           </div>
+             
+               </div>
+              </div>
+            </div>
+          </div>
+      
+        
+        {% endfor %} -->
+      <div class="row gy-4">
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card icon-box" id="card" style="width: 25rem;">
+         <img src="{% static 'img/template5.jpg'%}" class="card-img-top" alt="...">
+           <div class="card-body">
+            <span class="best-seller">Best Seller</span>
+            <span class="featured">Featured</span>
+           <div>
+         <h6 class="card-title">Best Ready made Website for Sale at reasonable price Buy now</h6>
+           <div class="price-big">
+          <span> ₹4,300</span>  ₹3,800
+         </div>
+       <div class="bid">49 Bids</div><br><br>
+         <a href="website-detail.html" class="btn btn-primary">Details</a>
+           </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card icon-box" id="card" style="width: 25rem;">
+<img src="{% static 'img/template9.jpg'%}" class="card-img-top" alt="...">
+<div class="card-body">
+  <span class="best-seller">Best Seller</span>
+  <span class="featured">Featured</span>
+  
+<h6 class="card-title">Best Ready made Website for Sale at reasonable 
+price Buy now</h6>
+  <div class="price-big">
+          <span> ₹13,000</span>  ₹11,000
+        </div>
+  <div class="bid">43 Bids</div><br><br>
+<a href="website-detail.html" class="btn btn-primary">Details</a>
+</div>
+</div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
+        <div class="card" id="card" style="width: 25rem;">
+<img src="{% static 'img/template6.jpg'%}" class="card-img-top" alt="...">
+<div class="card-body">
+  <span class="best-seller">Best Seller</span>
+  <span class="featured">Featured</span>
+  
+<h6 class="card-title">Best Ready made Website for Sale at reasonable 
+price Buy now</h6>
+  <div class="price-big">
+          <span> ₹9,000</span>  ₹7,500
+        </div>
+  <div class="bid">17 Bids</div><br><br>
+<a href="website-detail.html" class="btn btn-primary">Details</a>
+</div>
+</div>
+      </div>
+
+    </div>
+      <div class="row gy-4">
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card icon-box" id="card" style="width: 25rem;">
+         <img src="{% static 'img/template5.jpg'%}" class="card-img-top" alt="...">
+           <div class="card-body">
+            <span class="best-seller">Best Seller</span>
+            <span class="featured">Featured</span>
+           <div>
+         <h6 class="card-title">Best Ready made Website for Sale at reasonable price Buy now</h6>
+           <div class="price-big">
+          <span> ₹4,300</span>  ₹3,800
+         </div>
+       <div class="bid">49 Bids</div><br><br>
+         <a href="website-detail.html" class="btn btn-primary">Details</a>
+           </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card icon-box" id="card" style="width: 25rem;">
+<img src="{% static 'img/template9.jpg'%}" class="card-img-top" alt="...">
+<div class="card-body">
+  <span class="best-seller">Best Seller</span>
+  <span class="featured">Featured</span>
+  
+<h6 class="card-title">Best Ready made Website for Sale at reasonable 
+price Buy now</h6>
+  <div class="price-big">
+          <span> ₹13,000</span>  ₹11,000
+        </div>
+  <div class="bid">43 Bids</div><br><br>
+<a href="website-detail.html" class="btn btn-primary">Details</a>
+</div>
+</div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
+        <div class="card" id="card" style="width: 25rem;">
+<img src="{% static 'img/template6.jpg'%}" class="card-img-top" alt="...">
+<div class="card-body">
+  <span class="best-seller">Best Seller</span>
+  <span class="featured">Featured</span>
+  
+<h6 class="card-title">Best Ready made Website for Sale at reasonable 
+price Buy now</h6>
+  <div class="price-big">
+          <span> ₹9,000</span>  ₹7,500
+        </div>
+  <div class="bid">17 Bids</div><br><br>
+<a href="website-detail.html" class="btn btn-primary">Details</a>
+</div>
+</div>
+      </div>
+
+    </div>
+    </div>
+</section><!-- End Portfolio Section -->
+<!-- <div class="row gy-4"> -->
+        
+
+<!-- ======= Services Section ======= -->
+<section id="services" class="services section-bg">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Why Business Boosters?</h2>
+    </div>
+
+    <div class="row gy-4">
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+        <div class="icon-box iconbox-blue">
+          <div class="icon">
+            <img src="{% static 'img/vetting.png' %}" width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"/>
+          </div>
+          <h4><a href="">Vetting</a></h4>
+          <p>All properties are vetted by our team. This way we can guarantee and certify that all sites, blogs and YouTube channels for sale at Business Boosters are real and their stakeholders are reliable.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+        <div class="icon-box iconbox-orange ">
+          <div class="icon">
+            <img src="{% static 'img/magic.png' %}" width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"/>
+          </div>
+          <h4><a href="">Quality of our properties</a></h4>
+          <p>We believe that all properties for sale on Business Boosters represent a good business opportunity. Whether they are of low or high value, they are all excellent opportunities for growth.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
+        <div class="icon-box iconbox-pink">
+          <div class="icon">
+            <img src="{% static 'img/safe.png' %}" width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"/>
+          </div>
+          <h4><a href="">100% Safe</a></h4>
+          <p>All transactions made through Business Boosters are 100% safe. Both buyers and sellers are safeguarded by the years of experience in our team.</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="row gy-4" style="margin-top: 20px;">
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+        <div class="icon-box iconbox-blue">
+          <div class="icon">
+            <img src="{% static 'img/valuation.png' %}" width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"/>
+          </div>
+          <h4><a href="">Free Valuation</a></h4>
+          <p>Before we put a property on sale we do a free valuation. This assessment is made by the best experts in the market which allows you to reach a fair value for both parties.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+        <div class="icon-box iconbox-orange ">
+          <div class="icon">
+            <img src="{% static 'img/follow-up.png' %}" width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"/>
+          </div>
+          <h4><a href="">Follow up</a></h4>
+          <p>Throughout the process, even after the sale, our team will be at your side. We do not want you to simply make a sale or a purchase, we want to create a enduring relationship with all our customers.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
+        <div class="icon-box iconbox-pink">
+          <div class="icon">
+            <img src="{% static 'img/support.png' %}" width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"/>
+          </div>
+          <h4><a href="">Support</a></h4>
+          <p>We have experts for all phases throughout the process of selling a property. It is only in this way can we ensure the best experience for our customers.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Services Section -->
+{% endblock %}

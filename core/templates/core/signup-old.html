@@ -1,0 +1,119 @@
+{% extends 'core/base.html' %}
+{% block title %} Signup {% endblock title %}
+{% block signupactive%} active {% endblock signupactive %}
+{% block content %}
+{% load static %}
+
+<!------ Include the above in your HEAD tag ---------->
+<style>
+	h3 {
+		font-weight: 900;
+		text-decoration: none;
+		padding-bottom: -0%;
+	}
+
+	.register p {
+		font-weight: 700;
+		text-decoration: none;
+		padding-bottom: -0%;
+	}
+
+	.register a {
+		font-weight: 700;
+	}
+</style>
+<div class="container">
+	<div class="row">
+				<div class="col-md-6 col-sm-7 col-xs-12 col-lg-6">
+					<h3>Register</h3>
+					<hr>
+					<form id="register-form" class="register" action='/signup' method="post" role="form">
+                        {% csrf_token %}
+                        <div class="row">
+							<!--p>First Name</p-->
+							<div class="col-md-6">
+								<input type="text" class="form-control mt-3" name="first_name" id="id_first_name" placeholder="Enter First Name" required>
+							</div>
+							<div class="col-md-6">
+								<input type="text" class="form-control mt-3" name="last_name" id="id_last_name" placeholder="Enter Last Name" required>
+							</div>
+						</div>
+						<div class="row">
+						<div class="col-md-12 mt-3">
+							
+							<input type="text" name="username" class="form-control" maxlength="150" autocapitalize="none" autocomplete="username" autofocus id="id_username" placeholder="Enter unique username" required>
+							
+						</div>
+						</div>
+						<div class="row mt-3">
+							<div for="col-md-12">
+							<input type="email" class="form-control" id="id_email" name="email" placeholder="Enter your email" required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mt-2 mb-2">
+								<input type="password" name="password1" autocomplete="new-password" required id="id_password1" class="form-control" placeholder="Enter Password" required>
+								
+							</div>
+
+							<div class="col-md-6 mt-2 mb-2">
+								
+								<input type="password" name="password2" autocomplete="new-password" required id="id_password2" class="form-control" placeholder="Confirm Password" required>
+								
+							</div>
+						</div>
+                        
+                        <div class="field">
+                            <label>Account type</label>
+    
+                            <div class="control">
+                                <div class="select ">
+                                    <select class="form-select col-md-2 mt-3 mb-3" name="account_type">
+                                        <option value="buyer" selected>Buyer</option>
+                                        <option value="seller">Seller</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-md-12" style="margin-top: 3px; font-size: 14px; margin-bottom: 3px;">
+							<input type="checkbox" class="form-check-input" value="check"  name="is_agree" id="id_is_agree" required>
+							I have read and agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy
+								Policy</a> and <a href="#">Fees</a>
+						</div>	
+						<button type="submit" class="btn btn-info mt-3 ml-1">Register</button>
+						<p class="mt-3">Already have and Account? <a href="/login">Log in</a> </p>
+							
+					</form>
+				</div>
+				<div class="col-md-6 col-sm-5 col-xs-6 col-lg-6">
+					<img src="{% static 'img/signup.svg' %}" style="width: 100%;" alt="Signup Image">
+				</div>
+				<!--div class="container">
+				<div class="col-md-12">
+					<p class="badge " style="color: black; font-size: 20px;">Sign up with </p>
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-3 mb-2">
+						
+						<a class="btn btn-md" style="background-color: #DD4B39; color:white;" href="#!"
+							role="button"><i class="fa fa-google-plus"></i>Google</a>
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-3 mb-2">
+						<a class="btn btn-md" style="background-color: #3368A4; color:white;" href="#!"
+							role="button"><i class="fa fa-facebook"></i>Facebook</a>
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-3 mb-2">
+						<a class="btn btn-md" style="background-color: #00acee; color:white;" href="#!"
+							role="button"><i class="fa fa-twitter "></i>Twitter</a>
+					</div>
+
+					<div class="col-md-3 col-sm-3 col-xs-3">
+						<a class="btn btn-md" style="background-color: #0E72A3; color:white;" href="#!"
+							role="button">Linked <i class="fa fa-md fa-linkedin-square"></i></a>
+					</div>
+				</div-->
+	</div>
+</div>
+{% endblock content %}
+
+
+
