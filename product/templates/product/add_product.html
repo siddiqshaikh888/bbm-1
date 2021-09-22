@@ -1,0 +1,149 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="col-md-8">
+
+                <h1 class="mt-5">Business <span style="color:rgb(3, 117, 146);">Valuation</span></h1>
+
+                <form v-on:submit="validateForm" method="post" action=".">
+                    {% csrf_token %}
+
+                    {% if form.errors %}
+                    {% for error in form.errors %}
+                    <div class="notification is-danger">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+                    <div class="notification is-danger" v-if="errors.length">
+                        <p v-for="error in errors">
+
+                        </p>
+                    </div>
+
+                    <div class="field">
+                        <label>Property Url</label>
+
+                        <div class="">
+                            <!--input class="form-control" type="text" name="company_url" id="id_company_url" v-model="company_url"
+                                placeholder="Enter your Website / Channel's company_url"-->
+                                {{form.company_url}}
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>description</label>
+
+                        <div class="">
+                            <!--textarea class="textarea form-control" name="short_description" id="id_short_description"
+                                placeholder="Tell us a little about your property, including how it started, what content it includes, how much time you spend per week etc."
+                                v-model="short_description"></textarea-->
+                                {{ form.short_description }}
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Staring Date of the Business</label>
+
+                        <div class="control">
+                            <input class="form-control" type="date" name="company_date" id="id_company_date"
+                                v-model="company_date">
+                        </div>
+                    </div>
+
+                    <div class="form-row field-monetize">
+
+
+                        <div>
+
+                            <label>Monetize:</label> 
+            <ul class="list-group-horizontal">
+                {{ form.monetize }}
+                
+            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="field">
+                        <label>Company address</label>
+
+                        <div class="control">
+                            {{form.company_address}}
+                        </div>
+                    </div>
+
+                    <div>
+                        {{form.image}}
+
+                    </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-success" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            Side bar
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const AddProductApp = {
+        data() {
+            return {
+                company_url: '',
+                company_date: '',
+                short_description: '',
+                company_size: '',
+                errors: []
+            }
+        },
+        delimiters: ['[[', ']]'],
+        methods: {
+            validateForm(e) {
+                this.errors = []
+
+                if (this.company_url === '') {
+                    this.errors.push('The title field is missing!')
+                }
+
+                if (this.short_description === '') {
+                    this.errors.push('The short description field is missing!')
+                }
+
+                if (this.company_date === '') {
+                    this.errors.push('The company Date field is missing!')
+                }
+
+                if (this.company_size === '') {
+                    this.errors.push('The company size is missing!')
+                }
+
+                if (this.errors.length) {
+                    e.preventDefault()
+
+                    return false
+                } else {
+                    return true
+                }
+            }
+        }
+    }
+
+    Vue.createApp(AddProductApp).mount('#add-product-app');
+</script>
+{% endblock %}

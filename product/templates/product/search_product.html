@@ -1,0 +1,50 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Buy and sell website{% endblock title %}
+{% block homeactive%} active {% endblock homeactive %}
+{% block content %}
+
+    
+          {% if searched %}
+          <p>Search result for {{ searched }}</p>
+          <br>
+          {% for product in products %}
+          <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="card icon-box" id="card">
+             
+               <div class="card-body">
+                <span class="best-seller text-center text-uppercase">{{ product.status }}</span>
+                <span class="featured">{{ product.created_at }}</span>
+               <div>
+            <h6 class="card-title"><a href="{% url 'product_detail' product.id %}" style="margin-left: 5px;">{{ product.company_url }}</a></h6>
+             <h6 class="card-title">{{ product.short_description }}</h6>
+               <div class="price-big">
+                <span> ₹4,300</span>  ₹3,800
+             </div>
+           <div class="bid">49 Bids</div><br><br>
+           <div class="row">
+             <div class="col-md-6">
+              <div class="card" style="border-radius: 50px; border-color: #D5E0F2; background-color:#E9EEF8"> <h6 class="pt-2 pl-4 pb-2">Monetization
+                <small style="font-size: 60%;"><br><i class="fa fa-check"></i> Adsense, <br><i class="fa fa-check"></i> YouTube Monetization</small></h6>
+              
+              </div> 
+              </div>
+              <div class="col-md-4">
+                <div class="card" style="border-radius: 50px; border-color: #FDCD9D; background-color:#FEF2F1"> <h6 class="pt-2 pl-4 pb-2">Net Profit
+                  <small style="font-size: 60%;"><br>500 p/mo </small></h6>
+                
+                </div>
+              </div>
+             <div class="col-md-2"><a href="{% url 'product_detail' product.id %}" style="margin-left: 5px;" class="btn btn-primary pull-right">View</a></div>
+           </div>
+             
+               </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% else %}
+          <p>Not Found</p>
+          {% endif %}
+
+{% endblock  %}

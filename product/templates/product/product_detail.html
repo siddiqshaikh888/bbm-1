@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h1 class="title">{{ product.title }} ({{ product.get_status_display }})</h1>
+
+    <p class="is-size-4">{{ product.short_description }}</p>
+
+    <p>{{ product.long_description }}</p>
+
+    <b>Company name: </b>{{ product.company_date}}<br>
+    {% if product.company_address %}<b>Company address: </b>{{ product.company_address}}<br>{% endif %}
+    {% if product.company_zipcode %}<b>Company zipcode: </b>{{ product.company_zipcode}}<br>{% endif %}
+    {% if product.company_place %}<b>Company place: </b>{{ product.company_place}}<br>{% endif %}
+    {% if product.company_country %}<b>Company country: </b>{{ product.company_country}}<br>{% endif %}
+    <b>Company size: </b>{{ product.get_company_size_display }}<br>
+
+    <hr>
+
+    {% if product.status == 'active' %}
+        <a href="{% url 'apply_for_product' product.id %}" class="btn btn-success">Apply for product</a>
+    {% else %}
+        <p>This product is not available anymore!</p>
+    {% endif %}
+{% endblock %}

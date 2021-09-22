@@ -1,0 +1,216 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="col-md-8">
+
+                <h1 class="mt-5">Business <span style="color:rgb(3, 117, 146);">Valuation</span></h1>
+
+                <form v-on:submit="validateForm" method="post" action=".">
+                    {% csrf_token %}
+
+                    {% if form.errors %}
+                    {% for error in form.errors %}
+                    <div class="notification is-danger">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+                    <div class="notification is-danger" v-if="errors.length">
+                        <p v-for="error in errors">
+
+                        </p>
+                    </div>
+
+                    <div class="field">
+                        <label>Property Url</label>
+
+                        <div class="">
+                            <input class="form-control" type="text" name="url" id="id_url" v-model="url"
+                                placeholder="Enter your Website / Channel's Url">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>description</label>
+
+                        <div class="">
+                            <textarea class="textarea form-control" name="short_description" id="id_short_description"
+                                placeholder="Tell us a little about your property, including how it started, what content it includes, how much time you spend per week etc."
+                                v-model="short_description"></textarea>
+                        </div>
+                    </div>
+
+                    <!--div class="field">
+                <label>Long description</label>
+
+                <div class="control">
+                    <textarea class="textarea" name="long_description" id="id_long_description"></textarea>
+                </div>
+            </div-->
+
+                    <div class="field">
+                        <label>Staring Date of the Business</label>
+
+                        <div class="control">
+                            <input class="form-control" type="date" name="company_date" id="id_company_date"
+                                v-model="company_date">
+                        </div>
+                    </div>
+
+                    <div class="form-row field-monetize">
+
+
+                        <div>
+
+
+                            <label>Monetize:</label>
+
+                            <ul id="id_monetize">
+                                <li><label for="id_monetize_0"><input type="checkbox" name="monetize" value="ecommerce"
+                                            id="id_monetize_0">
+                                        Ecommerce</label>
+
+                                </li>
+                                <li><label for="id_monetize_1"><input type="checkbox" name="monetize" value="ads"
+                                            id="id_monetize_1">
+                                        Ads</label>
+
+                                </li>
+                                <li><label for="id_monetize_2"><input type="checkbox" name="monetize" value="archived"
+                                            id="id_monetize_2">
+                                        Archived</label>
+
+                                </li>
+                            </ul>
+
+
+
+                        </div>
+
+                    </div>
+
+                    <!--div class="ui slider checkbox">
+                <input id="id_providers_{{ forloop.counter0 }}" name="{{ form.providers.name }}" type="checkbox" value="{{ value }}"{% if value in checked_providers %} checked="checked"{% endif %}>
+                <label>{{ text }}</label>
+              </div-->
+
+                    <div class="field">
+                        <label>Company address</label>
+
+                        <div class="control">
+                            <input class="input" type="text" name="company_address" id="id_company_address">
+                        </div>
+                    </div>
+
+                    <!--div class="field">
+                        <label>Company zipcode</label>
+
+                        <div class="control">
+                            <input class="input" type="text" name="company_zipcode" id="id_company_zipcode">
+                        </div>
+                    </div-->
+
+                    <div>
+                        <p>Select Pictures: </p><input name="image" type="file" size="50" accept="image/*" multiple>
+
+                    </div>
+
+                    <div class="field">
+                        <label>Company place</label>
+
+                        <div class="control">
+                            <input class="input" type="text" name="company_place" id="id_company_place">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Company country</label>
+
+                        <div class="control">
+                            <input class="input" type="text" name="company_country" id="id_company_country">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Company size</label>
+
+                        <div class="control">
+                            <div class="select">
+                                <select name="company_size" v-model="company_size">
+                                    <option value="">Choose size</option>
+                                    <option value="size_1-9">1-9</option>
+                                    <option value="size_10-49">10-49</option>
+                                    <option value="size_50-99">50-99</option>
+                                    <option value="size_100">100+</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-success" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            Side bar
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const AddProductApp = {
+        data() {
+            return {
+                url: '',
+                company_date: '',
+                short_description: '',
+                company_size: '',
+                errors: []
+            }
+        },
+        delimiters: ['[[', ']]'],
+        methods: {
+            validateForm(e) {
+                this.errors = []
+
+                if (this.url === '') {
+                    this.errors.push('The title field is missing!')
+                }
+
+                if (this.short_description === '') {
+                    this.errors.push('The short description field is missing!')
+                }
+
+                if (this.company_date === '') {
+                    this.errors.push('The company Date field is missing!')
+                }
+
+                if (this.company_size === '') {
+                    this.errors.push('The company size is missing!')
+                }
+
+                if (this.errors.length) {
+                    e.preventDefault()
+
+                    return false
+                } else {
+                    return true
+                }
+            }
+        }
+    }
+
+    Vue.createApp(AddProductApp).mount('#add-product-app');
+</script>
+{% endblock %}
