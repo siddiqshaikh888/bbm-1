@@ -1,0 +1,81 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="title mt-5">Dashboard</h1>
+</div>
+{% if userprofile.is_seller %}
+<section class="tabs-section" style="margin-top: -80px;">
+    <div class="container">
+        <div class="row dashboard">
+            <div class="col-sm-5 col-lg-3">
+                <ul class="nav nav-tabs flex-column mb-3">
+                    <li class="nav-item">
+                        <a class="nav-link active show" data-toggle="tab" href="#tab-1">Manage Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tab-2">Manage Applictions</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-7 col-lg-9">
+                <div class="tab-content">
+                    <div class="tab-pane active show" id="tab-1">
+                        <div class="button-group">
+                            <a href="{% url 'add_product' %}" class="btn btn-primary">Add Product</a>
+                            <!--a href="index.html" class="btnbtn-big-sm">Manage Posts</a-->
+                        </div>
+                        <table>
+                            <thead>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Status</th>
+                                <th colspan="2">Action</th>
+                            </thead>
+                            
+                        {% for product in request.user.products.all %}
+                        
+                            <tbody>
+                                <tr>
+
+                                    <td>{{ product.id }}</td>
+                                    <td><a href="{% url 'view_dashboard_product' product.id %}"
+                                            title="Click to view {{ product.url }} ">{{ product.company_url }}</a></td>
+                                    <td>({{ product.get_status_display }})</td>
+
+                                    <td><a href="{% url 'edit_product' product.id %}" class="btn btn-info">Edit</a>
+                                    </td>
+                                    <!--td><a href="{% url 'edit_product' product.id %}" class="btn btn-danger">delete</a></td-->
+                                    <!--td><a href="#" class="publish">publish</a></td-->
+                                
+
+                        <div class="content">
+
+                            {% empty %}
+                            <p>You don't have any products yet...</p>
+                            {% endfor %}
+                        </tr>
+
+                    </tbody>
+                </table>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    {% else %}
+        <h2 class="subtitle">Applications</h2>
+
+        {% for application in request.user.applications.all %}
+            <div class="application">
+                <a href="{% url 'view_application' application.id %}">{{ application.product.title }}</a>
+            </div>
+        {% empty %}
+            <p>You haven't applied for any products yet...</p>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

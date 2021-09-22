@@ -1,0 +1,260 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <script src="{% static 'js/login_reg.js' %}"></script>
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+  <title> {% block title %}{% endblock title %}| Business Boosters</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item {% block homeactive%} {% endblock homeactive %}">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item {% block blogactive%} {% endblock blogactive %}">
+          <a class="nav-link" href="/blog">Blog</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <form method="post" class="form-inline my-2 my-lg-0 ml-5">
+          {%csrf_token %}
+        <!--form method="GET" action="/search" class="form-inline my-2 my-lg-0 ml-5"-->
+          <input class="form-control me-2"name="title" required id="id_title" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </ul>
+      
+      {% if user.is_authenticated %}
+      <div class="login">
+      <ul class="navbar-nav mr  -auto mb-2 mb-lg-0">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Welcome {{request.user}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/change-password">Change Password</a>
+          
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/logout">Logout</a>
+        </div>
+      </li>
+      
+      
+      </ul>
+    </div>
+      {% else %}
+      <!-- Button trigger modal -->
+      <u class="link"><a style="color: #fff;" aria-current="page" href="/login">Login</a></u>
+         <span style="color: #fff;">&nbsp/&nbsp</span>      
+      <u><a aria-current="page" style="color: #fff;" href="/signup">Register</a></u>
+
+
+    {% endif %}
+    </div>
+  </div>
+</nav>
+
+  <!--nav class="navbar navbar-default">
+    <div class="container-fluid">
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+          
+        </ul-->
+        
+  
+  <div class="container-fluid ">
+     <div class="col-md-6 mt-5" >
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close btn-{{ message.tags }}" style="margin-left:85%;" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div> 
+  </div>
+    <!-- Newsletter Section->
+    <section class="newsletter no-padding-top">    
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Subscribe to Newsletter</h2>
+            <p class="text-big">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          <div class="col-md-8">
+            <div class="form-holder">
+              <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    
+                    <button type="submit" class="submit">Signup</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section-->  
+  
+
+    
+        </div>
+      </div>
+    </div>
+  </div>
+  {% block body %}{% endblock body %}
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  
+    {% block footer %}
+    <div class="container-fluid mt-5" style="background: url('/static/img/footer_bg.png') fixed; color: white; padding: 50px 0 0 0;">
+      <div class="container footer">
+      <div class="row">
+        
+        <div class="col-md-4">
+          <h3>Logo</h3>
+          <p>The marketplace where you can
+          sell websites, YouTube channels and
+          other digital properes in total security</p>
+          <span class="fa fa-envelope-o fa-lg mb-5"><a href="mailto:support@businessboosters.com"> support@businessboosters.com</a></span>
+        </div>
+        <div class="col-md-2">
+          <h5><u>Quick Links</u></h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">How it works</a>
+            </li>
+            <li>
+              <a href="#!">Buy and sell</a>
+            </li>
+            <li>
+              <a href="#!">Pricing</a>
+            </li>
+            <li>
+              <a href="#!">FAQ’s</a>
+            </li>
+            <li>
+              <a href="#!">Terms</a>
+            </li>
+            <li>
+              <a href="#!">Privacy Policy</a>
+            </li>
+          </ul>
+  
+        </div>
+        <div class="col-md-6">
+          {% include "newsletter.html" %}
+          <p class="text-center mt-3" style="font-size: 20px; font-weight: 600;">Follow us on Social Media</p>
+          
+
+          <!-- Social buttons -->
+          <ul class="list-unstyled list-inline text-center">
+            <a href="#">
+            <li class="list-inline-item">
+                <i class="fa fa-facebook fa-lg"> </i>
+              </a>
+            </li>
+            <a href="#">
+            <li class="list-inline-item">
+                <i class="fa fa-twitter fa-lg"> </i>
+              </a>
+            </li>
+            <a href="#">
+            <li class="list-inline-item">
+                <i class="fa fa-linkedin fa-lg"> </i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fa fa-youtube-play fa-lg"> </i>
+              </a>
+            </li>
+          </ul>
+          <!-- Social buttons -->
+          
+        </div>
+          <!-- Copyright -->
+          <div class="col-md-12 text-center mt-4 mb-3">© 2021 Copyright :
+            <a href="https://businessboostersmarket.com/" style="font-size: 15px; text-align: center;"> businessboostersmarket.com</a>
+          </div>
+          <!-- Copyright -->
+      </div>
+      </div>
+    </div>
+    
+    
+</body>
+<script>
+  $('.social-toggle').on('click', function () {
+    $(this).next().toggleClass('open-menu');
+  });
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>
+{% endblock footer %}

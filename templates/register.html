@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %} Blog {% endblock title %}
+{% block body %}
+<p> Register</p>
+<form method="POST" action="">
+	{% csrf_token %}
+	{{form.as_p}}
+<input type="submit" name="create user">
+</form>
+{% endblock body %}

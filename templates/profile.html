@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Profile {% endblock title %}
+{% block homeactive%} active {% endblock homeactive %}
+{% block body %}
+{% load static %}
+<form method="post">
+    {% csrf_token %}
+<div class="field">
+    <label>Account type</label>
+
+    <div class="control">
+        <div class="select">
+            <select name="account_type">
+                <option value="buyer" selected>I Want to Buy</option>
+                <option value="seller">I Want to Sell</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="field">
+    <div class="control">
+        <button class="button is-success">Sign up</button>
+    </div>
+</div>
+</form>
+{% endblock body %}

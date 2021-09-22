@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock title %}
+{% block body %}
+<style>
+	p{
+		font-weight: 500;
+		margin-top: 10px;
+		font-size: 18px;
+		font-weight: 700;
+		text-align: left;
+	}
+	p span{
+		font-size: 18px;
+		font-weight: 400;
+		 
+	}
+	#more {display: none;}
+	#more1 {display: none;}
+	#more2 {display: none;}
+</style>
+<div class="container-fluid">
+	<h5>Video<span style="color:#4986C5"> Blogs</span></h5>
+	<div class="row">
+		<div class="col-md-12">
+			Ads
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-1">
+			
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
+			<iframe class="embed-responsive embed-responsive-16by9" style="height: 200px;" src="https://www.youtube.com/embed/TboWOSW7qCI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<p>Video Topic –<span>&nbsp Short Description about Video Some quick example textto build on the card title and make up the bulk of the card's content.<span id="dots">...</span><span id="more"> Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.</span></p>
+				<a style="color:teal;" onclick="myFunction()" id="myBtn">Read more...</a>
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
+			<iframe class="embed-responsive embed-responsive-16by9" style="height: 200px;" src="https://www.youtube.com/embed/TboWOSW7qCI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<p>Video Topic –<span>&nbsp Short Description about Video Some quick example textto build on the card title and make up the bulk of the card's content.<span id="dots1">...</span><span id="more1"> Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.</span></p>
+				<a style="color:teal;" onclick="myFunction1()" id="myBtn1">Read more...</a>
+		</div>
+		<div class="col-md-3 col-sm-3 col-xs-3 col-lg-3">
+			<iframe class="embed-responsive embed-responsive-16by9" style="height: 200px;" src="https://www.youtube.com/embed/TboWOSW7qCI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<p>Video Topic –<span>&nbsp Short Description about Video Some quick example textto build on the card title and make up the bulk of the card's content.<span id="dots2">...</span><span id="more2"> Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.</span></p>
+				<a style="color:teal;" onclick="myFunction2()" id="myBtn2">Read more...</a>
+			
+		</div>
+		<div class="col-md-2">
+		</div>
+			
+	</div>
+</div>
+
+<script>
+	function myFunction() {
+	  var dots = document.getElementById("dots");
+	  var moreText = document.getElementById("more");
+	  var btnText = document.getElementById("myBtn");
+	
+	  if (dots.style.display === "none") {
+		dots.style.display = "inline";
+		btnText.innerHTML = "Read more"; 
+		moreText.style.display = "none";
+	  } else {
+		dots.style.display = "none";
+		btnText.innerHTML = "Read less"; 
+		moreText.style.display = "inline";
+	  }
+	}
+
+	function myFunction1() {
+	  var dots = document.getElementById("dots1");
+	  var moreText = document.getElementById("more1");
+	  var btnText = document.getElementById("myBtn1");
+	
+	  if (dots.style.display === "none") {
+		dots.style.display = "inline";
+		btnText.innerHTML = "Read more"; 
+		moreText.style.display = "none";
+	  } else {
+		dots.style.display = "none";
+		btnText.innerHTML = "Read less"; 
+		moreText.style.display = "inline";
+	  }
+	}
+
+	function myFunction2() {
+	  var dots = document.getElementById("dots2");
+	  var moreText = document.getElementById("more2");
+	  var btnText = document.getElementById("myBtn2");
+	
+	  if (dots.style.display === "none") {
+		dots.style.display = "inline";
+		btnText.innerHTML = "Read more"; 
+		moreText.style.display = "none";
+	  } else {
+		dots.style.display = "none";
+		btnText.innerHTML = "Read less"; 
+		moreText.style.display = "inline";
+	  }
+	}
+	</script>
+
+{% endblock body %}

@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% block title %} Signup {% endblock title %}
+{% block homeactive%} active {% endblock homeactive %}
+{% block body %}
+{% load static %}
+
+<!------ Include the above in your HEAD tag ---------->
+<style>
+	h3 {
+		font-weight: 900;
+		text-decoration: none;
+		padding-bottom: -0%;
+	}
+
+	.register p {
+		font-weight: 700;
+		text-decoration: none;
+		padding-bottom: -0%;
+	}
+
+	.register a {
+		font-weight: 700;
+	}
+</style>
+<div class="container">
+	<div class="row">
+				<div class="col-md-6 col-sm-7 col-xs-12 col-lg-6">
+					<h3>Register</h3>
+					<hr>
+					<form id="register-form" class="register" action='/signup' method="post" role="form">
+						<div class="row">
+							<!--p>First Name</p-->
+							<div class="col-md-6">
+								<input type="text" class="form-control mt-3" id="fname" name="fname" placeholder="Enter First Name" required>
+							</div>
+							<div class="col-md-6">
+								<input type="text" class="form-control mt-3" id="lname" name="lname" placeholder="Enter Last Name" required>
+							</div>
+						</div>
+						<div class="row">
+						<div class="col-md-12 mt-3">
+							
+							<input type="text" class="form-control" id="username"	name="username" placeholder="Enter unique username" required>
+							
+						</div>
+						</div>
+						<div class="row mt-3">
+							<div for="col-md-12">
+							<input type="email" class="form-control" id="email" name="email" placeholder="Enter your email"
+								required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 mt-2 mb-2">
+								<input type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter Password"
+									required>
+								
+							</div>
+
+							<div class="col-md-6 mt-2 mb-2">
+								
+								<input type="password" class="form-control" id="pass2" name="pass2" placeholder="Confirm Password"
+									required>
+								
+							</div>
+						</div>
+						{% csrf_token %}
+						<div class="col-md-12" style="margin-top: 3px; font-size: 14px; margin-bottom: 3px;">
+							<input type="checkbox" class="form-check-input" name="checkbox" value="check" id="agree" required>
+							I have read and agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy
+								Policy</a> and <a href="#">Fees</a>
+						</div>	
+						<button type="submit" class="btn btn-info mt-3 ml-1">Register</button>
+						<p class="mt-3">Already have and Account? <a href="/login">Log in</a> </p>
+							
+					</form>
+				</div>
+				<div class="col-md-6 col-sm-5 col-xs-6 col-lg-6">
+					<img src="{% static 'img/signup.svg' %}" style="width: 100%;" alt="Signup Image">
+				</div>
+				<!--div class="container">
+				<div class="col-md-12">
+					<p class="badge " style="color: black; font-size: 20px;">Sign up with </p>
+				</div>
+					<div class="col-md-3 col-sm-3 col-xs-3 mb-2">
+						
+						<a class="btn btn-md" style="background-color: #DD4B39; color:white;" href="#!"
+							role="button"><i class="fa fa-google-plus"></i>Google</a>
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-3 mb-2">
+						<a class="btn btn-md" style="background-color: #3368A4; color:white;" href="#!"
+							role="button"><i class="fa fa-facebook"></i>Facebook</a>
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-3 mb-2">
+						<a class="btn btn-md" style="background-color: #00acee; color:white;" href="#!"
+							role="button"><i class="fa fa-twitter "></i>Twitter</a>
+					</div>
+
+					<div class="col-md-3 col-sm-3 col-xs-3">
+						<a class="btn btn-md" style="background-color: #0E72A3; color:white;" href="#!"
+							role="button">Linked <i class="fa fa-md fa-linkedin-square"></i></a>
+					</div>
+				</div-->
+	</div>
+</div>
+{% endblock body %}

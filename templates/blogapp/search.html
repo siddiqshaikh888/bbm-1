@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+{% block title %} Search Results {% endblock title %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    
+    
+          {% if searched %}
+          <div class="section-title container">
+            <h2 class="mt-5">Blog Search Result</h2>
+            <p>Search result for {{ searched }}</p>
+            </div>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                <form method="POST" action="{% url 'search' %}">
+                  <div class="input-group mb-3">
+                    {% csrf_token %}
+                    <input type="search" class="form-control" name="searched" placeholder="Search Blog Posts">
+                    <button class="input-group-text" type="submit"> Search</button></div>
+                </form>
+              </div>
+              <div class="col-md-3"></div>
+            </div>
+          <div class="row">
+          {% for blogs in blogs %}
+          <div class="col-md-4 col-sm-12 col-xs-6 mt-5 mb-3">
+            <div class="card card1">
+              <a style="font-weight: 500;" class="text-uppercase"
+                  href="{% url 'blog' blogs.id %}">
+              {% if blogs.header_image %}
+                <img src="{{ blogs.header_image.url}}" style="height:200px; width:100%" class="img" alt="{{data.blog_title}}">
+              {% endif %}
+              <div class="card-body">
+                {{blogs.blog_title | safe }}<br></a>
+                </div>
+      
+              </div>
+            </div>
+          
+          
+            
+          {% endfor %}
+        </div>
+          {% else %}
+          <h1>No Result Found</h1>
+            {% endif %}
+    
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+<h3>Title:</h3><p>{{data.blog_title}}</p><br>
+<h3>Blog</h3>
+<p>{{data.blog}}</p>
+<hr/>
+ 
+<a href = "{% url 'blogs' %}">Go Back</a>
+ 
+ 
+<form method="post">
+    {%csrf_token %}
+    <H2> Comment Here</H2>
+    {{form.as_p}}
+    <input type ="submit" value="Comment">
+</form>
+ 
+{%for categroy in categorys%}
+<p><strong>{{category.cat_name}}</strong></p>
+{%endfor %}

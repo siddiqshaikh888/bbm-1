@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+{% block title %}Contact {% endblock title %}
+{% block contactactive%} active {% endblock contactactive %}
+{% load static %}
+
+{% block content %}
+<!-- <section id="contact" class="services section-bg"> -->
+
+<div class="container mt-5 ">
+	<div class="row">
+		<div class="col-md-6 col-sm-6 col-xs-6">
+      <h3 class="">Contact us</h3>
+      <h3>Let's get in touch</h3>
+      <form method="post" class="php-email-form" action="/contact">
+        {% csrf_token %}
+          <div class="row">
+              <div class="col-md-6">
+            <input type="text" class="form-control mt-3" id="id_name" name="name" placeholder="Your name..">
+                </div>
+            <div class="col-md-6">
+            <input type="email" class="form-control mt-3" id="email" name="email" placeholder="Email@gmail.com">
+                </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <textarea id="id_subject" name="subject" class="form-control mt-3" placeholder="Write something.." style="height:150px"></textarea>
+                
+        <button class="btn btn-info btn-md mb-5 mt-3 ml-1" style="color:white" type="submit"> Submit</button>
+      </div>
+          </div>
+        </form>  
+        </div>
+		<div class="col-md-6 col-sm-6 col-xs-6">
+			<img src="{% static 'img/contact.svg' %}" style="width:75%; margin-top: -50px;" alt="Contact Image">
+		</div>
+	</div>
+</div>
+<!-- </section> -->
+{% endblock %}

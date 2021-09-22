@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<h3>Sell Now</h3>
+<form method="post" action="/sell/">
+    {% csrf_token %}
+      <div class="row">
+          <div class="col-lg-4 offset-lg-4">
+        <input type="text" class="form-control mt-3" id="id_propurl" name="propurl" placeholder="Property Url " required>
+        
+        <textarea class="form-control mt-3" id="id_desc" name="desc" rows="3" placeholder="Write something.." required></textarea>
+        <input type="date" class="form-control mt-3" id="id_date" name="date" required>
+     
+        <label>Monetized:</label>
+                        
+        <ul id="id_monetized">
+<li><label for="id_monetized_0"><input type="checkbox" name="monetized" value="Ecommerce" id="id_monetized_0" />
+Ecommerce</label>
+
+</li>
+<li><label for="id_monetized_1"><input type="checkbox" name="monetized" value="Ads" id="id_monetized_1" />
+Ads</label>
+
+</li>
+<li><label for="id_monetized_2"><input type="checkbox" name="monetized" value="AdSense" id="id_monetized_2" />
+AdSense</label>
+
+</li>
+<li><label for="id_monetized_3"><input type="checkbox" name="monetized" value="Affiliate" id="id_monetized_3" />
+Affiliate</label>
+
+</li>
+<li><label for="id_monetized_4"><input type="checkbox" name="monetized" value="SaaS" id="id_monetized_4" />
+SaaS</label>
+
+</li>
+<li><label for="id_monetized_5"><input type="checkbox" name="monetized" value="Subscriptions" id="id_monetized_5" />
+Subscriptions</label>
+
+</li>
+</ul>
+<button class="btn btn-info btn-md mb-5 mt-3 ml-1" style="color:white" type="submit"> Submit</button>
+      </div>
+    
+        </div>
+    
+  </div>
+      </div>
+    </form> 
+    {% endblock body %}

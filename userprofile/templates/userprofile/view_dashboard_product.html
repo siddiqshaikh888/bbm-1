@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container">
+<h5 class="title mt-5">View product - {{ product.company_url }}</h5>
+
+    <a href="{% url 'edit_product' product.id %}" class="btn btn-info mb-4 pull-right">Edit</a>
+
+    <p class="is-size-4">{{ product.short_description }}</p>
+
+    <!--p>{{ product.long_description }}</p-->
+
+    <b>Company Started Date: </b>{{ product.company_date}}<br>
+    <b>Company address: </b>{{ product.company_address}}<br>
+    <!--b>Company zipcode: </b>{{ product.company_zipcode}}<br>
+    <b>Company place: </b>{{ product.company_place}}<br>
+    <b>Company country: </b>{{ product.company_country}}<br>
+    <b>Company size: </b>{{ product.get_company_size_display }}<br-->
+
+    {% for application in product.applications.all %}
+        <a href="{% url 'view_application' application.id %}">{{ application.created_by.username }}</a>
+    {% endfor %}
+</div>
+{% endblock %}
